@@ -1,0 +1,8 @@
+si tienes un script en npm llamado start
+
+npm automaticamente corre un script llamado
+  prestart
+y luego de terminar el comando start correrá
+  poststart
+
+si existen esos comandos, serán ejecutados

@@ -1,0 +1,40 @@
+curso
+
+  1.intro
+  2.env setup
+  3.react component approaches
+  4.initial app structure
+  5.redux intro
+  6.actions, stores, and reducers
+  7.connecting react to redux
+  8.redux flow
+  9.async in redux
+  10.async writes in redux
+  11. async status
+  12. testing react
+  13. testing redux
+  14. production build
+
+que usara
+
+  redux
+  es6 with babel
+  react router
+  webpack
+  npm scripts
+  eslint
+  mocha, react test utils, and enzyme (testing)
+  proyecto : pluralsight admin app
+
+versiones que usa de herramientas
+
+  react : 15.0.2
+  redux : 3.0.2
+  react-router : 2.4.0
+  webpack : 1.13
+  babel : 6.*
+
+repo de boilerplate:
+
+  https://github.com/coryhouse/pluralsight-redux-starter
+

@@ -1,0 +1,18 @@
+9 beneficios de usar stateless functional components
+
+  -No se necesita class
+    ya no se necesita el constructor entonces
+
+  -Evitan el 'this' keyword
+    se entiende mucho mas rapido el componente
+
+  -Evitan malas practicas
+    normalmente por flojera agregas un estado a los componentes cuando puedes, pero no es buena practica. Como los stateless no pueden tener este state. te fuerza a hacerlo de la manera correcta
+
+  -Mucho más limpio el código
+
+  -Más facil de testear
+
+  -Mejor perfomance
+    no hay estado, menos peso
+  

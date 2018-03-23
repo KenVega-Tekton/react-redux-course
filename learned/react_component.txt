@@ -1,0 +1,50 @@
+4 formas de crear componentes
+
+  es5 createClass
+
+    var HelloWorld = React.createClass({
+      render : function() {
+        return(
+          <h1>Hello world</h1>
+        );
+      }
+    });
+     
+  es6 class
+
+    class Contacts extends React.Component{
+      constructor(props){
+        super(props);
+        this.handleClick = this.handleClick.bind(this);
+      }
+    }
+
+    -no existe autobind
+    -proptypes se declaran separado
+    -defaultProps se declaran separado
+    -se inicializa el estado en el constructor
+
+  es5 stateless function (stateless functional components)
+
+    var HelloWorld = function(props) {
+      return (
+        <h1>Hello world</h1>
+      );
+    };
+
+    se usa cuando tu componente no necesita
+      -usar life cycle methods
+      -llevar un estado
+      -hacer perfomance optimizations
+
+  es6 stateless function
+
+    const HelloWorld = (props) => {
+      return (
+        <h1>Hello world</h1>
+      );
+    };
+
+  en realidad hay más..
+
+cuando usar cada una
