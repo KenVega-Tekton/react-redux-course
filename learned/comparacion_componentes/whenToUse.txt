@@ -1,0 +1,16 @@
+cuando usar class based components
+
+  necesitas manejar un estado en el componente
+
+  necesitas acceso a ref
+
+  necesitas usar lifecyce methods
+
+  cuando hay funciones nesteadas (es mejor en class based por perfomance)
+    si tienes stateless component, no deberias estar nesteando funciones dentro
+
+
+cuando usar stateless components
+
+  en el resto de situaciones
+

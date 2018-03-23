@@ -1,0 +1,49 @@
+como se definen los reducers?
+
+  funciones que reciben el estado y una accion
+
+    y retornan el nuevo estado (recuerda que es inmutable)
+
+  mal ejemplo de un reducer
+    
+    function myReducer(state, action) {
+      switch (action.type){
+        case 'INCREMENT_COUNTER':
+          state.counter++; // CUIDADO, NO PUEDES MUTAR EL ESTADO. ESTO NO SE HACE!
+          return state;
+      }
+    }
+
+  buen ejemplo
+
+    function myReducer(state, action) {
+      switch (action.type){
+        case 'INCREMENT_COUNTER':
+          return (Object.assign(
+            {},
+            state,
+            {counter : state.counter + 1}
+          ))
+      }
+    }
+
+  reducers deben ser pure functions así que NO deben: 
+
+    mutar los argumentos que recibe
+    realizar efectos secundarios
+      como hacer llamadas a un API
+      o transiciones de routing
+    llamar a non-pure functions
+      como Date.now() o Math.random()
+
+  stores pueden manejar partes de la data a traves de varios reducers
+
+    cada reducer maneja cierta parte del store de la app. por ejemplo pueden haber
+
+      reducers para el loadingStatus
+      reducers para authors
+      reducers para courses
+
+  
+
+    

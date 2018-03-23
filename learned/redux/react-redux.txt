@@ -1,0 +1,82 @@
+react-redux es una libreria
+
+  conecta los containers (smart componentes) con redux
+
+  consiste de
+
+    provider
+      se usa en el root de la app. junta la app al store
+
+      donde es que se usa?
+
+        <Provider store={this.props.store}>
+          <App/>
+        </Provider>
+
+        esto le deja pase a que todos tus containers components puedan acceden al store (sin pasarle el store explicitamente)
+
+    connect
+
+      envuelve los componentes de modo que se conectan al redux store
+
+      export default connect(
+        mapStateToProps,
+        mapDispatchToProps
+      )(AuthorPage);
+
+      que hace la funcion mapStateToProps
+        especifica el estado que quieres exponer a tu componente
+
+        cuando defines esta funcion, el componente se suscribe a los redux store updates (por eso se actualiza cuando cambia el estado)
+
+        esta funcion retorna un objeto
+          cada propiedad definida en este objeto se volvera una propiedad de props en tu container component
+
+        esta funcion es llamada cada vez que el componente se actualiza
+
+        si realizas funciones de mucho peso en esta funcion, considera usar la librería reselect (es como el caching para las funciones :memoize para mayor perfomance)
+
+      que hace la funcion mapDispatchToProps
+        especifica las acciones que quieres exponer a tus componentes
+
+        function mapDispatchToProps(dispatch){
+          return {
+            actions : bindActionCreators(actions, dispatch)
+          };
+        }
+
+        envuelve las acciones en un dispatch call * buscar qué es dispatch *
+
+        cómo acceder luego a las acciones
+
+          this.props.actions.loadCourses();
+
+
+        otra forma : envolver manualmente
+
+          function mapDispatchToProps(dispatch){
+            return {
+               loadCourses : () => {
+                 dispatch(loadCourses());
+               },
+               createCourse : (course) => {
+                 dispatch(createCourse(course));
+               },
+               updateCourse : (course) => {
+                 dispatch(updateCourse(course));
+               },
+            }
+          }
+
+          this.props.loadCourses(); // se llama luego así.
+          // esta forma se entiende más pero es redundante
+
+        
+
+      beneficios de connect de react-redux (en comparacion con flux(libreria antigua))
+
+        no se requieren usar lifecycle methods
+        le dices exactamente que parte del state le quieres pasar a redux
+
+
+    

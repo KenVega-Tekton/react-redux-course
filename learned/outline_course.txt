@@ -38,3 +38,13 @@ repo de boilerplate:
 
   https://github.com/coryhouse/pluralsight-redux-starter
 
+-----
+
+App.js
+  lleva el layout de la app que se repite en varias paginas
+    sea el header o el footer por ejemplo
+
+  fijate en como pone el layout con children
+    luego lo usa junto con routes.js
+
+  

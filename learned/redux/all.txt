@@ -1,0 +1,103 @@
+redux 3 principios
+
+  - state es inmutable
+      application state se guarda en un inmutable store
+
+      ayuda a debuggear mejor
+      soporta server side rendering 
+
+  - la unica forma de cambiar el estado es a traves de acciones
+
+  - el estado es finalmente cambiado por funciones puras llamadas reducers
+
+cuando usar redux
+
+  vanilla js para apps muy simples
+
+  jquery para cuando necesitas manipular y hacer ajax
+
+  para mantener apps un poco mas grandes React es bueno
+
+  redux se usa cuando:
+
+    cuando el data flow se vuelve mas complejo 
+
+    comunicacion entre componentes 
+      sean 2 que no tienen el mismo padre pero se enlazan
+      o sean 2 componentes que esten gestionando la misma data en la app
+
+    cuando hay muchas acciones
+
+    cuando usas la misma data en muchos lugares
+
+inmutabilidad del store en redux
+
+  en vez de cambiar propiedades tu estado como objeto, se entrega todo un nuevo objeto
+
+  que es mutable?
+    objetos, arreglos, funciones
+
+  que es inmutable?
+    Number, String, Boolean, Undefined, Null 
+    * cuando cambias el valor de estos, una nueva copia es creada y retornada
+
+  cómo NO se trabaja con el state
+
+    state = {
+      name : 'Cory',
+      role : 'author'
+    }
+
+    state.role = 'admin'; // aqui se esta mutando el estado
+    return state;
+
+  cómo SÍ se trabaja con el state
+
+    return state = {
+      name = 'Cory',
+      role = 'admin'
+    }
+
+  por qué el estado debe ser inmutable?
+
+    -claridad/certeza
+
+      siempre sabes que si el estado ha cambiado, es que alguien ha creado un nuevo objeto que ha sido regresado por el reducer.
+
+    -performance
+
+      para que redux sepa si cambió el estado lo hace comparando las referencias a la memoria. si el estado actual tiene una referencia a memoria distinta a el estado anterior, entonces es un nuevo estado.
+
+      si fuese de otra manera (menos eficiente) tendría que comparar cada uno de las propiedades del estado previo con el actual para saber si en verdad es un nuevo estado.
+
+    -debugging faster
+
+      time travel debugging(?) -> como cambia el estado a traves del tiempo
+      se puede tener una gran certeza de cómo el estado cambia en la app
+      puedes apagar(?) ciertas acciones por separado
+
+  cómo crear nuevas copias de grandes Objects? (cómo manejo este estado inmutable?)
+
+    Object.assign(target, ...sources); // crea una copia 
+
+    ejemplo
+
+      Object.assign({}, state , {role: 'admin'});
+        // crea un nuevo objeto vacio y combina el estado actual con la propiedad siguiente ( como ya existe, la reemplaza )
+
+    tambien usar spread operator (de Es6)
+
+  cómo fuerzo inmutabilidad en el store? (para evitar mutar el state por error)
+
+    redux-inmutable-state-invariant
+
+      librería que te da error si mutas el estado
+
+    inmutable.js
+
+      crea inmutable javascript data structures
+      
+
+  
+
+  

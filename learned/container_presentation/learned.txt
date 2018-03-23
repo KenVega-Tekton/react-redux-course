@@ -1,0 +1,33 @@
+container componentes
+
+  son el back end del front end
+
+  se preocupan en pasar data y acciones a sus hijos
+    así que no contienen mucho DOM
+  
+  saben y usan redux 
+
+  normalmente tienen que manejar un estado (stateful)
+    despliegan las acciones
+    se suscriben al redux state
+
+  otros nombres
+    smart component
+    stateful
+    controller view
+
+presentation componentes
+
+  casi todo de esto es markup
+
+  reciben la data y acciones via props
+    invocan callbacks en props
+
+  no saben sobre redux
+
+  normalmente no manejan un estado (stateless)
+
+  otros nombres
+    dumb component
+    stateless
+    view
