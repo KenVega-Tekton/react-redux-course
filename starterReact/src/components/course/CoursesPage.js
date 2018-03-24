@@ -1,15 +1,21 @@
-import React, { Proptypes, Component } from 'react';
+import React, { Proptypes, Component } from "react";
 
 class CoursesPage extends Component {
+  constructor(props, context) {
+    super(props, context);
 
-  state = {
-    course : {title : ""}
-  };
+    this.state = {
+      course: { title: "" }
+    };
 
-  onTitleChange(event){
+    this.onTitleChange = this.onTitleChange.bind(this);
+    this.onClickSave = this.onClickSave.bind(this);
+  }
+
+  onTitleChange(event) {
     const course = this.state.course;
     course.title = event.target.value;
-    this.setState({course: course});
+    this.setState({ course: course });
   }
 
   onClickSave() {
@@ -23,18 +29,13 @@ class CoursesPage extends Component {
         <h2>Add Course</h2>
         <input
           type="text"
-          onChange={onTitleChange}
-          value={state.course.title}
-          />
-        <input
-          type="submit"
-          value="save"
-          onClick={onClickSave}
-          />
+          onChange={this.onTitleChange}
+          value={this.state.course.title}
+        />
+        <input type="submit" value="save" onClick={this.onClickSave} />
       </div>
     );
   }
 }
 
 export default CoursesPage;
-
