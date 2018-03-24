@@ -2,16 +2,9 @@ import React, { Proptypes, Component } from 'react';
 
 class CoursesPage extends Component {
 
-  constructor(props,context){
-    super(props,context);
-
-    this.state = {
-      course : {title : ""}
-    };
-
-    this.onTitleChange = this.onTitleChange.bind(this);
-    this.onClickSave = this.onClickSave.bind(this);
-  }
+  state = {
+    course : {title : ""}
+  };
 
   onTitleChange(event){
     const course = this.state.course;
@@ -30,13 +23,13 @@ class CoursesPage extends Component {
         <h2>Add Course</h2>
         <input
           type="text"
-          onChange={this.onTitleChange}
-          value={this.state.course.title}
+          onChange={onTitleChange}
+          value={state.course.title}
           />
         <input
           type="submit"
           value="save"
-          onClick={this.onClickSave}
+          onClick={onClickSave}
           />
       </div>
     );
