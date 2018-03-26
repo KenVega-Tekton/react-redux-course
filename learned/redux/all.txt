@@ -97,7 +97,20 @@ inmutabilidad del store en redux
 
       crea inmutable javascript data structures
       
+-----------
 
+libreria react-redux
+
+  { Provider }
+
+    junta el store a los container components 
+
+    normalmente es lo que hace wrap a la aplicacion
+
+      así se conecta al redux store
+
+    con esto ahora se puede acceder al redux store a traves de los componentes
+    
   
 
   
